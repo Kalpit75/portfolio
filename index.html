@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kalpit Dhakal — Software Developer</title>
+  <title>Kalpit Dhakal — Developer</title>
   <link href="https://fonts.bunny.net/css?family=fraunces:400,700,900|plus-jakarta-sans:400,500,600,700,800&display=swap" rel="stylesheet"/>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -99,6 +98,7 @@
       font-family:var(--font-display);
       font-weight:900; font-size:1.4rem; font-style:italic;
       color:var(--text); letter-spacing:-0.02em;
+      text-decoration:none;
     }
     .nav-logo em { color:var(--c1); font-style:normal; }
 
@@ -177,7 +177,10 @@
     #home {
       min-height: 100svh;
       display:flex; align-items:center; justify-content:center;
-      padding:7rem 3rem 5rem;
+      padding-top: calc(4rem + 64px); /* 64px ≈ nav height */
+      padding-bottom: 4rem;
+      padding-left: 3rem;
+      padding-right: 3rem;
       position:relative; overflow:hidden;
     }
 
@@ -420,6 +423,36 @@
     }
     [data-theme="light"] .learning-pill { color:#00a060; border-color:rgba(0,160,80,0.3); background:rgba(0,160,80,0.06); }
 
+    /* ── CERTIFICATIONS ── */
+    .cert-card {
+      margin-top:1rem;
+      border:1px solid var(--border); border-radius:16px;
+      padding:1.4rem 1.7rem; background:var(--surface);
+      display:flex; align-items:center; gap:1.4rem;
+      position:relative; overflow:hidden;
+      text-decoration:none; color:var(--text);
+      transition:transform 0.28s var(--ease-spring), box-shadow 0.28s, border-color 0.28s;
+    }
+    .cert-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      background:linear-gradient(90deg,var(--c5),var(--c4));
+      border-radius:16px 16px 0 0;
+    }
+    .cert-card:hover { transform:translateY(-3px); box-shadow:var(--shadow); border-color:var(--border2); }
+    .cert-icon {
+      width:44px; height:44px; border-radius:10px; flex-shrink:0;
+      background:rgba(0,201,255,0.1); border:1px solid rgba(0,201,255,0.2);
+      display:flex; align-items:center; justify-content:center; font-size:1.3rem;
+    }
+    .cert-body { flex:1; min-width:0; }
+    .cert-name { font-weight:700; font-size:0.92rem; margin-bottom:0.2rem; }
+    .cert-issuer { font-size:0.76rem; color:var(--muted); margin-bottom:0; }
+    .cert-arrow {
+      font-size:0.8rem; color:var(--muted); flex-shrink:0;
+      transition:transform 0.2s var(--ease-spring), color 0.2s;
+    }
+    .cert-card:hover .cert-arrow { transform:translate(2px,-2px); color:var(--text); }
+
     /* ── ACHIEVEMENTS ── */
     .achievements-list { display:flex; flex-direction:column; gap:0.9rem; }
     .achievement-card {
@@ -521,7 +554,7 @@
       .mobile-menu { display:flex; }
 
       .section-wrap { padding:4rem 1.4rem; }
-      #home { padding:5rem 1.4rem; }
+      #home { padding-top: calc(3rem + 64px); padding-bottom: 3rem; padding-left: 1.4rem; padding-right: 1.4rem; }
 
       h1 { font-size:clamp(3rem,16vw,5rem); }
 
@@ -554,7 +587,7 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo">K<em>.</em>Dhakal</div>
+    <a href="#home" class="nav-logo">K<em>.</em>Dhakal</a>
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
@@ -584,7 +617,7 @@
   </div>
 
   <!-- HERO -->
-  <section id="home" style="max-width:100%;padding-top:0;">
+  <section id="home">
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
     <div class="blob blob-3"></div>
@@ -607,7 +640,7 @@
       <div class="btn-row">
         <a href="#projects" class="btn btn-primary">View Projects ↓</a>
         <a href="mailto:kalpitdhakal.dev@gmail.com" class="btn btn-ghost">Get in Touch</a>
-        <a href="Kalpit_Resume.pdf" download class="btn btn-ghost">↓ Download CV</a>
+        <a href="Kalpit_Dhakal_Resume.pdf" download class="btn btn-ghost">↓ Download CV</a>
       </div>
     </div>
   </section>
@@ -681,6 +714,16 @@
         </div>
       </div>
     </div>
+
+    <a href="https://www.freecodecamp.org/certification/kalpit75/foundational-c-sharp-with-microsoft"
+       target="_blank" class="cert-card reveal">
+      <div class="cert-icon">🎓</div>
+      <div class="cert-body">
+        <div class="cert-name">Foundational C# with Microsoft</div>
+        <div class="cert-issuer">freeCodeCamp &nbsp;·&nbsp; Microsoft &nbsp;·&nbsp; Verified Certificate</div>
+      </div>
+      <span class="cert-arrow">↗</span>
+    </a>
   </div>
 
   <hr class="div" />
@@ -853,7 +896,7 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.48 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.005 2.04.138 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.69.82.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
           GitHub
         </a>
-        <a href="Kalpit_Resume.pdf" download class="social-link">
+        <a href="Kalpit_Dhakal_Resume.pdf" download class="social-link">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Download CV
         </a>
@@ -862,7 +905,7 @@
   </div>
 
   <footer>
-    <p>Built by <b>Kalpit Dhakal</b> · Kathmandu, Nepal · 2025 &nbsp;·&nbsp; <a href="https://kalpitdhakal.com.np" target="_blank" style="color:var(--muted);text-decoration:none;">kalpitdhakal.com.np ↗</a></p>
+    <p>Built by <b>Kalpit Dhakal</b> · Kathmandu, Nepal · 2026 &nbsp;·&nbsp; <a href="https://kalpitdhakal.com.np" target="_blank" style="color:var(--muted);text-decoration:none;">kalpitdhakal.com.np ↗</a></p>
   </footer>
 
   <script>
